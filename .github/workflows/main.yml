@@ -27,7 +27,7 @@ jobs:
     - name: Publish to npm
   uses: pascalgn/npm-publish-action@1.2.0
   with:
-    cmd: install
+    cmd: install npm
   - name: Creating Build
     run: npm run build
     
