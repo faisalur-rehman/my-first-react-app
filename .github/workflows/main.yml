@@ -23,16 +23,18 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v2-beta
       with:
-        version: 12
+        node-version: 12
       
-     - uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: install
-     - name: Creating Build
+     - name: INstalling yarn 
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+        
+      - name: Creating Build
         run: yarn build
 
-      -name: installing surge
+      - name: installing surge
         run: npm install -g surge
         
-     - name: Deploying on surge
+      - name: Deploying on surge
          run: surge ./build http://second-react-app.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
